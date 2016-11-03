@@ -1,0 +1,62 @@
+[Project]
+FileName=Tetris.dev
+Name=Tetris
+Type=1
+Ver=2
+ObjFiles=
+Includes=
+Libs=
+PrivateResource=Tetris_private.rc
+ResourceIncludes=
+MakeIncludes=
+Compiler=
+CppCompiler=_@@_
+Linker="C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32/libwinmm.a"_@@_
+IsCpp=1
+Icon=Tetris.ico
+ExeOutput=Release
+ObjectOutput=
+LogOutput=
+LogOutputEnabled=0
+OverrideOutput=0
+OverrideOutputName=Tetris.exe
+HostApplication=
+UseCustomMakefile=0
+CustomMakefile=
+CommandLine=
+Folders=
+IncludeVersionInfo=1
+SupportXPThemes=0
+CompilerSet=1
+CompilerSettings=0000000000000000001000000
+UnitCount=1
+
+[VersionInfo]
+Major=1
+Minor=4
+Release=1
+Build=2001
+LanguageID=1033
+CharsetID=1252
+CompanyName=David Knieradl
+FileVersion=1.4.1.2001
+FileDescription=Tetris
+InternalName=Project Rocnikovka
+LegalCopyright=David Knieradl
+LegalTrademarks=David Knieradl
+OriginalFilename=Tetris by David Knieradl
+ProductName=Tetris
+ProductVersion=1.4.1.2001
+AutoIncBuildNr=1
+SyncProduct=1
+
+[Unit1]
+FileName=tetris 1.4.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+

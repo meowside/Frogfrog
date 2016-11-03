@@ -1,0 +1,36 @@
+/* THIS FILE WILL BE OVERWRITTEN BY DEV-C++ */
+/* DO NOT EDIT! */
+
+#include <windows.h> // include for version info constants
+
+
+A ICON "Tetris.ico"
+
+//
+// TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
+//
+1 VERSIONINFO
+FILEVERSION 1,4,1,2001
+PRODUCTVERSION 1,4,1,2001
+FILETYPE VFT_APP
+{
+  BLOCK "StringFileInfo"
+  {
+    BLOCK "040904E4"
+    {
+      VALUE "CompanyName", "David Knieradl"
+      VALUE "FileVersion", "1.4.1.2001"
+      VALUE "FileDescription", "Tetris"
+      VALUE "InternalName", "Project Rocnikovka"
+      VALUE "LegalCopyright", "David Knieradl"
+      VALUE "LegalTrademarks", "David Knieradl"
+      VALUE "OriginalFilename", "Tetris by David Knieradl"
+      VALUE "ProductName", "Tetris"
+      VALUE "ProductVersion", "1.4.1.2001"
+    }
+  }
+  BLOCK "VarFileInfo"
+  {
+    VALUE "Translation", 0x0409, 1252
+  }
+}
