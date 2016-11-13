@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConsoleTesterProject
@@ -16,13 +15,15 @@ namespace ConsoleTesterProject
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                char temp = Console.ReadKey(true).KeyChar;
+            Image test = Image.FromFile(@"giphy-downsized-large.gif");
 
-                if (Char.IsLetterOrDigit(temp) || temp == ' ')
-                    Console.WriteLine(temp);
-            }
+            FrameDimension fd = new FrameDimension(test.FrameDimensionsList[0]);
+
+            int count = test.GetFrameCount(fd);
+
+            AnimatedGif 
+
+            Console.ReadLine();
         }
     }
 }
