@@ -20,8 +20,7 @@ namespace ConsoleTesterProject
             FrameDimension fd = new FrameDimension(test.FrameDimensionsList[0]);
 
             int count = test.GetFrameCount(fd);
-
-            AnimatedGif 
+            
 
             Console.ReadLine();
         }
