@@ -1,77 +1,71 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using ConsoleTesterProject.Properties;
+using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
+using System.IO;
+using System.Media;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ConsoleTesterProject
 {
-    class Foo
-    {
-        public int X { get; set; } = 0;
-    }
 
-    class Program
+    static class Program
     {
-
         static void Main(string[] args)
         {
-            /*List<Foo> t = new List<Foo>();
-            Action x = null;
+            /*const int MAX = 1000000000;
+            const float A = 1f / 100;
+            Stopwatch t = Stopwatch.StartNew();
 
-            for(int i = 0; i < 3000; i++)
+            for (int i = 0; i < MAX; i++)
             {
-                t.Add(new Foo(i));
-                x += t[i].Print;
+                float j = 2 * A;
             }
 
-            Stopwatch time = Stopwatch.StartNew();
+            long t1 = t.ElapsedTicks;
+            t = Stopwatch.StartNew();
 
-            x.Invoke();
-
-            //t?.Invoke();
-
-            time.Stop();
-
-            Console.WriteLine($"{time.ElapsedTicks} {time.Elapsed} FPS:{1000 / time.ElapsedMilliseconds}");
-
-            time = Stopwatch.StartNew();
-
-            Parallel.ForEach(x.GetInvocationList(), (a, b, c) => a.DynamicInvoke());
-
-            //t.BeginInvoke(Foo, )
-
-            //Parallel.ForEach(t.GetInvocationList(), () => );
-
-            //t?.Invoke();
-
-            time.Stop();
-
-            Console.WriteLine($"{time.ElapsedTicks} {time.Elapsed} FPS:{1000 / time.ElapsedMilliseconds}");
-            */
-
-            Thread.Sleep(10000);
-
-            if (Console.KeyAvailable)
+            for (int i = 0; i < MAX; i++)
             {
-                ConsoleKeyInfo k = Console.ReadKey();
-                Console.Write("");
+                float j = 2f / 100;
             }
 
-            /*while (true)
+            long t2 = t.ElapsedTicks;*/
+            /*t = Stopwatch.StartNew();
+
+            for (int i = 0; i < MAX; i++)
             {
-                char x = Console.ReadKey(true).KeyChar;
-                char y = Console.ReadKey(true).KeyChar;
-                continue;
+                tmp = string.Format($"ahoj{i}sup{i}GG");
+            }
+            long t3 = t.ElapsedTicks;*/
+            /*t.Stop();
+
+            Console.WriteLine($"Multi: {t1}\nDivid: {t2}");*/
+
+            /*if (!Directory.Exists(@".\Test"))
+                Directory.CreateDirectory(@".\Test");
+
+            if (Directory.Exists(@".\Test"))
+            {
+                if (!File.Exists(@".\Test\Test.txt"))
+                    File.Create(@".\Test\Test.txt");
+
+                if (!File.Exists(@".\Test\Test"))
+                    using (FileStream f = new FileStream(@".\Test\Test", FileMode.Append))
+                    {
+                        byte[] Data = Encoding.ASCII.GetBytes("wat víc");
+                        f.Write(Data, 0, Data.Length);
+                        f.Close();
+                    }
             }*/
-                
+
+            UnmanagedMemoryStream t = Resources.test;
+
+            while (true)
+            {
+                Console.ReadKey();
+                new SoundPlayer(t).Play();
+            }
 
             Console.ReadLine();
         }
