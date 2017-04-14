@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TridaSmazat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TridaSmazatResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="TridaList">
+        <s:complexType />
+      </s:element>
+      <s:element name="TridaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TridaListResult" type="tns:ArrayOfSkolaTridy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSkolaTridy">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SkolaTridy" nillable="true" type="tns:SkolaTridy" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SkolaTridy">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nazev" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tridni" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZmenenoKdy" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZmenenoKdo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rocnik" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TridaCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trida" type="tns:SkolaTridy" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TridaCreateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ZaciSmazat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZaciSmazatResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ZaciList">
+        <s:complexType />
+      </s:element>
+      <s:element name="ZaciListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZaciListResult" type="tns:ArrayOfZakModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZakModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ZakModel" nillable="true" type="tns:ZakModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZakModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jmeno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prijmeni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RodneCislo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Muz" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Trida" nillable="true" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="Studuje" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZmenenoKdy" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZmenenoKdo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ZaciCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:ZakModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZaciCreateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="PredmetCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:PredmetModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PredmetModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Predmet" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Povinny" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PredmetCreateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="PredmetyList">
+        <s:complexType />
+      </s:element>
+      <s:element name="PredmetyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PredmetyListResult" type="tns:ArrayOfPredmetModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPredmetModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PredmetModel" nillable="true" type="tns:PredmetModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PredmetyDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PredmetyDeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ZnamkaCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="znamkaHodnota" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="zak" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="predmet" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZnamkaCreateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ZnamkyList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZnamkyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZnamkyListResult" type="tns:ArrayOfZnamkaModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZnamkaModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ZnamkaModel" nillable="true" type="tns:ZnamkaModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZnamkaModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="Znamka" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Zak" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="Predmet" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ZnamkaDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZnamkaDeleteResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="TridaSmazatSoapIn">
+    <wsdl:part name="parameters" element="tns:TridaSmazat" />
+  </wsdl:message>
+  <wsdl:message name="TridaSmazatSoapOut">
+    <wsdl:part name="parameters" element="tns:TridaSmazatResponse" />
+  </wsdl:message>
+  <wsdl:message name="TridaListSoapIn">
+    <wsdl:part name="parameters" element="tns:TridaList" />
+  </wsdl:message>
+  <wsdl:message name="TridaListSoapOut">
+    <wsdl:part name="parameters" element="tns:TridaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="TridaCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:TridaCreate" />
+  </wsdl:message>
+  <wsdl:message name="TridaCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:TridaCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZaciSmazatSoapIn">
+    <wsdl:part name="parameters" element="tns:ZaciSmazat" />
+  </wsdl:message>
+  <wsdl:message name="ZaciSmazatSoapOut">
+    <wsdl:part name="parameters" element="tns:ZaciSmazatResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZaciListSoapIn">
+    <wsdl:part name="parameters" element="tns:ZaciList" />
+  </wsdl:message>
+  <wsdl:message name="ZaciListSoapOut">
+    <wsdl:part name="parameters" element="tns:ZaciListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZaciCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:ZaciCreate" />
+  </wsdl:message>
+  <wsdl:message name="ZaciCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:ZaciCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PredmetCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:PredmetCreate" />
+  </wsdl:message>
+  <wsdl:message name="PredmetCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:PredmetCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PredmetyListSoapIn">
+    <wsdl:part name="parameters" element="tns:PredmetyList" />
+  </wsdl:message>
+  <wsdl:message name="PredmetyListSoapOut">
+    <wsdl:part name="parameters" element="tns:PredmetyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PredmetyDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:PredmetyDelete" />
+  </wsdl:message>
+  <wsdl:message name="PredmetyDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:PredmetyDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZnamkaCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:ZnamkaCreate" />
+  </wsdl:message>
+  <wsdl:message name="ZnamkaCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:ZnamkaCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZnamkyListSoapIn">
+    <wsdl:part name="parameters" element="tns:ZnamkyList" />
+  </wsdl:message>
+  <wsdl:message name="ZnamkyListSoapOut">
+    <wsdl:part name="parameters" element="tns:ZnamkyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZnamkaDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:ZnamkaDelete" />
+  </wsdl:message>
+  <wsdl:message name="ZnamkaDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:ZnamkaDeleteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SkolaSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TridaSmazat">
+      <wsdl:input message="tns:TridaSmazatSoapIn" />
+      <wsdl:output message="tns:TridaSmazatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TridaList">
+      <wsdl:input message="tns:TridaListSoapIn" />
+      <wsdl:output message="tns:TridaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TridaCreate">
+      <wsdl:input message="tns:TridaCreateSoapIn" />
+      <wsdl:output message="tns:TridaCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZaciSmazat">
+      <wsdl:input message="tns:ZaciSmazatSoapIn" />
+      <wsdl:output message="tns:ZaciSmazatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZaciList">
+      <wsdl:input message="tns:ZaciListSoapIn" />
+      <wsdl:output message="tns:ZaciListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZaciCreate">
+      <wsdl:input message="tns:ZaciCreateSoapIn" />
+      <wsdl:output message="tns:ZaciCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PredmetCreate">
+      <wsdl:input message="tns:PredmetCreateSoapIn" />
+      <wsdl:output message="tns:PredmetCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PredmetyList">
+      <wsdl:input message="tns:PredmetyListSoapIn" />
+      <wsdl:output message="tns:PredmetyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PredmetyDelete">
+      <wsdl:input message="tns:PredmetyDeleteSoapIn" />
+      <wsdl:output message="tns:PredmetyDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkaCreate">
+      <wsdl:input message="tns:ZnamkaCreateSoapIn" />
+      <wsdl:output message="tns:ZnamkaCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkyList">
+      <wsdl:input message="tns:ZnamkyListSoapIn" />
+      <wsdl:output message="tns:ZnamkyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkaDelete">
+      <wsdl:input message="tns:ZnamkaDeleteSoapIn" />
+      <wsdl:output message="tns:ZnamkaDeleteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SkolaSoap" type="tns:SkolaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TridaSmazat">
+      <soap:operation soapAction="http://tempuri.org/TridaSmazat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TridaList">
+      <soap:operation soapAction="http://tempuri.org/TridaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TridaCreate">
+      <soap:operation soapAction="http://tempuri.org/TridaCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaciSmazat">
+      <soap:operation soapAction="http://tempuri.org/ZaciSmazat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaciList">
+      <soap:operation soapAction="http://tempuri.org/ZaciList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaciCreate">
+      <soap:operation soapAction="http://tempuri.org/ZaciCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PredmetCreate">
+      <soap:operation soapAction="http://tempuri.org/PredmetCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PredmetyList">
+      <soap:operation soapAction="http://tempuri.org/PredmetyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PredmetyDelete">
+      <soap:operation soapAction="http://tempuri.org/PredmetyDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkaCreate">
+      <soap:operation soapAction="http://tempuri.org/ZnamkaCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkyList">
+      <soap:operation soapAction="http://tempuri.org/ZnamkyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkaDelete">
+      <soap:operation soapAction="http://tempuri.org/ZnamkaDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SkolaSoap12" type="tns:SkolaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TridaSmazat">
+      <soap12:operation soapAction="http://tempuri.org/TridaSmazat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TridaList">
+      <soap12:operation soapAction="http://tempuri.org/TridaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TridaCreate">
+      <soap12:operation soapAction="http://tempuri.org/TridaCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaciSmazat">
+      <soap12:operation soapAction="http://tempuri.org/ZaciSmazat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaciList">
+      <soap12:operation soapAction="http://tempuri.org/ZaciList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaciCreate">
+      <soap12:operation soapAction="http://tempuri.org/ZaciCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PredmetCreate">
+      <soap12:operation soapAction="http://tempuri.org/PredmetCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PredmetyList">
+      <soap12:operation soapAction="http://tempuri.org/PredmetyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PredmetyDelete">
+      <soap12:operation soapAction="http://tempuri.org/PredmetyDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkaCreate">
+      <soap12:operation soapAction="http://tempuri.org/ZnamkaCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkyList">
+      <soap12:operation soapAction="http://tempuri.org/ZnamkyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZnamkaDelete">
+      <soap12:operation soapAction="http://tempuri.org/ZnamkaDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Skola">
+    <wsdl:port name="SkolaSoap" binding="tns:SkolaSoap">
+      <soap:address location="http://www.jhorak.eu/httphandlers/skola.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SkolaSoap12" binding="tns:SkolaSoap12">
+      <soap12:address location="http://www.jhorak.eu/httphandlers/skola.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

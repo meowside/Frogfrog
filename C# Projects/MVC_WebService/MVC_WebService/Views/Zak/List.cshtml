@@ -1,0 +1,76 @@
+﻿@model IEnumerable<MVC_WebService.Models.ZakLocalModel>
+
+@{
+    ViewBag.Title = "Seznam žáků školy";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    Celkový počet žáků: @ViewBag.PocetZaku
+    <br />
+    @Html.ActionLink("Přidat žáka", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Jmeno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prijmeni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Muz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RodneCislo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studuje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZmenenoKdy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZmenenoKdo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jmeno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prijmeni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Muz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RodneCislo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Studuje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZmenenoKdy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZmenenoKdo)
+        </td>
+        <td>
+            @Html.ActionLink("Známky", "List", "Znamka", new { zakId = item.Id, jmenoZaka = $"{item.Jmeno} {item.Prijmeni}" }, null) |
+            @Html.ActionLink("Smazat", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

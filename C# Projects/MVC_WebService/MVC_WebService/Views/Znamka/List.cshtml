@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MVC_WebService.Models.ZnamkaLocalModel>
+
+@{
+    ViewBag.Title = "Známky žáka " + ViewBag.JmenoZaka;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Přidat známku", "Create", new { zakId = ViewBag.ZakId, jmenoZaka = ViewBag.JmenoZaka })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Predmet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Znamka)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PredmetNazev)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Znamka)
+        </td>
+        <td>
+            @Html.ActionLink("Smazat", "Delete", new { znamkaId = item.Id, zakId = ViewBag.ZakId, jmenoZaka = ViewBag.JmenoZaka })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Zpět na seznam žáků", "List", "Zak")
+</div>

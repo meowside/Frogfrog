@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVC_WebService.Models.TridaModel>
+
+@{
+    ViewBag.Title = "Třídy na škole";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    Celkový počet žáků: @ViewBag.PocetTrid
+    <br />
+    @Html.ActionLink("Přidat třídu", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazev)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tridni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZmenenoKdy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZmenenoKdo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rocnik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ulozeno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazev)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tridni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZmenenoKdy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZmenenoKdo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rocnik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ulozeno)
+        </td>
+        <td>
+            @Html.ActionLink("Smazat", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

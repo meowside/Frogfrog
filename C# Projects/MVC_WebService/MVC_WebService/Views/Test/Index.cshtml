@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2 style="display: inline-block;">@ViewBag.Title</h2>
+
+<button id="zobraz-text" class="btn btn-primary">
+    Zobraz text
+</button>
+
+<button id="skryj-text" class="btn btn-danger">
+    Skryj text
+</button>
+
+<button id="prepni-text" class="btn btn-default">
+    Přepni text
+</button>
+
+@for (int i = 0; i < 5; i++)
+{
+    <div class="mizici-text">
+        Mizící text
+    </div>
+}
+
+<style type="text/css">
+    .cerveny-text {
+        color: red;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".btn").css("display", "inline-block");
+        $(".btn").css("margin-left", "10px");
+        $(".btn").css("margin-top", "-15px");
+
+        $(".mizici-text").css("cursor", "pointer");
+
+        $(".mizici-text").click(function () {
+            $(this).hide(1000);
+            debugger; // jako breakpoint funguje jenom v IE v kombinaci s VS, popř se zobrazí v debuggeru v nástrojích pro vývojáře
+        });
+
+        $(".mizici-text").mouseover(function () {
+            $(this).addClass("cerveny-text");
+        });
+
+        $(".mizici-text").mouseleave(function () {
+            $(this).removeClass("cerveny-text");
+        });
+
+        $("#zobraz-text").click(function () {
+            $(".mizici-text").show(1000);
+        });
+
+        $("#skryj-text").click(function () {
+            $(".mizici-text").hide(1000);
+        });
+
+        $("#prepni-text").click(function () {
+            $(".mizici-text").toggle(1000);
+        });
+    });
+</script>
+
