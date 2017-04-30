@@ -27,27 +27,29 @@ namespace ConsoleTesterProject
 
         public Parabola(int Y, TimeSpan T)
         {
-            Time = T; this.Y = Y;
+            Time = T;
+            this.Y = Y;
 
             NumberOfSamples = (int)Time.TotalMilliseconds;
             ValuesInTime = new float[NumberOfSamples];
 
-            double midpoint = NumberOfSamples / 2;
-            double start = -midpoint;
+            float midpoint = NumberOfSamples / 2f;
+            float start = -midpoint;
+            float lastResult = 0f;
 
-            for (int i = (int)start; i < (int)midpoint; i++)
+            for (float i = start; i < midpoint; i += 0.1f)
             {
-                ValuesInTime[(int)(i + midpoint)] = (-(float)(Math.Pow(1 / midpoint * i, 2)) + Y);
-                /*float result = (float)(Math.Sin(i * (Math.PI / SamplesInSecodnd)) * Y);
-                ValuesInTime[i] = i > 0 ? (float)(Math.Sin(i * (Math.PI / SamplesInSecodnd)) * Y) - ValuesInTime[i - 1] : 0;*/
+                float index = i + midpoint;
+                float result = -(float)(Math.Cos(Math.PI / NumberOfSamples * i) * Y);
+                ValuesInTime[(int)index] = index > 0 ? result - lastResult : result;
+                lastResult = result;
             }
 
             //Elapsed += Engine.DeltaTime;
         }
 
-        protected void Update(float miliseconds)
+        public void Update(float miliseconds)
         {
-            Accumulated = 0;
             float MaxTime = 0;
             float LeftoverTime = (float)((Elapsed + miliseconds) - Time.TotalMilliseconds);
 
@@ -60,7 +62,7 @@ namespace ConsoleTesterProject
                 MaxTime = Elapsed + miliseconds;
             }
 
-            for (int i = (int)Elapsed; i <= (int)MaxTime; i++)
+            for (int i = (int)Elapsed; i < (int)MaxTime; i++)
             {
                 Accumulated += ValuesInTime[i];
             }
@@ -73,7 +75,14 @@ namespace ConsoleTesterProject
     {
         static void Main(string[] args)
         {
-            Parabola x = new Parabola(10, new TimeSpan(0, 0, 1));
+            Parabola x = new Parabola(100, new TimeSpan(0, 0, 1));
+
+            for(int i = 0; i < x.Time.TotalMilliseconds; i++)
+            {
+                x.Update(1f);
+            }
+
+            Console.Write($"{x.Accumulated}");
 
             Console.ReadLine();
         }
