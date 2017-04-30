@@ -32,16 +32,15 @@ namespace ConsoleTesterProject
 
             NumberOfSamples = (int)Time.TotalMilliseconds;
             ValuesInTime = new float[NumberOfSamples];
+            float Duration = (float)Time.TotalSeconds;
 
-            float midpoint = NumberOfSamples / 2f;
-            float start = -midpoint;
             float lastResult = 0f;
 
-            for (float i = start; i < midpoint; i += 0.1f)
+            for (float i = 0; i < NumberOfSamples; i += 0.1f)
             {
-                float index = i + midpoint;
-                float result = -(float)(Math.Cos(Math.PI / NumberOfSamples * i) * Y);
-                ValuesInTime[(int)index] = index > 0 ? result - lastResult : result;
+                float constant = i / 1000f;
+                float result = ((float)Math.Pow(-constant, 2) - (Duration * constant)) * Y;
+                ValuesInTime[(int)i] = result - lastResult;
                 lastResult = result;
             }
 
@@ -75,7 +74,7 @@ namespace ConsoleTesterProject
     {
         static void Main(string[] args)
         {
-            Parabola x = new Parabola(100, new TimeSpan(0, 0, 1));
+            Parabola x = new Parabola(1000, new TimeSpan(0, 0, 0, 0, 500));
 
             for(int i = 0; i < x.Time.TotalMilliseconds; i++)
             {
